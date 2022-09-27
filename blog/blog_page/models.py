@@ -39,7 +39,8 @@ class Post(models.Model):
         args=[
             self.publish.year,
             self.publish.month,
-            self.publish.day, self.slug
+            self.publish.day, 
+            self.slug.post,
         ])
 
 class Comment(models.Model):
