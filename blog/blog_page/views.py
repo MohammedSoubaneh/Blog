@@ -56,12 +56,10 @@ def post_share(request, post_id):
     # Retrieve post by id
     post = get_object_or_404(Post, id=post_id, status='published')
 
-    comments = post.comments.filter(active=True)
     sent = False
 
     if request.method == 'POST':
 
-        comment_form = CommentForm(data=request.POST)
         form = EmailPostForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
